@@ -21,7 +21,12 @@ begynnelsen av igjen. Dvs. starte på pkt.1 igjen.
 
 int main() {
 
-    
+const int LOVLIGDISTANSE[] = {500, 1500, 3000, 5000};
 
-    return 0;
+
+
+
+
+return 0;
+
 }
