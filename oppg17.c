@@ -18,15 +18,34 @@ begynnelsen av igjen. Dvs. starte på pkt.1 igjen.
  * 
 */
 
+const int LOVLIGDISTANSE[] = {500, 1500, 3000, 5000};
+const int MAXLOPERE = 10;
+
+void lesTid(int* minutt, int* sekund, int* hundredel);
 
 int main() {
 
-const int LOVLIGDISTANSE[] = {500, 1500, 3000, 5000};
+int antallFemhundre[4];
+int distanse;
+int antallLopere;
+int minutt, sekund, hundredel;
+float poeng;
 
 
-
-
+for (int i = 0; i < 4; i++) 
+{
+    antallFemhundre[i] = LOVLIGDISTANSE[i] / 500;
+}
+            
 
 return 0;
+
+}
+
+
+void lesTid(int* minutt, int* sekund, int* hundredel) {
+    printf("Les inn tid (minutt, sekund, hundredel): \n");
+    scanf("%d %d %d", minutt, sekund, hundredel);
+
 
 }
