@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
  * Skriv et program som beregner pongsummen for et visst antall skøyteløpere på en gitt
@@ -19,33 +20,37 @@ begynnelsen av igjen. Dvs. starte på pkt.1 igjen.
 */
 
 const int LOVLIGDISTANSE[] = {500, 1500, 3000, 5000};
-const int MAXLOPERE = 10;
 
-void lesTid(int* minutt, int* sekund, int* hundredel);
-
-int main() {
-
-int antallFemhundre[4];
-int distanse;
-int antallLopere;
-int minutt, sekund, hundredel;
-float poeng;
-
-
-for (int i = 0; i < 4; i++) 
+int main(void)
 {
-    antallFemhundre[i] = LOVLIGDISTANSE[i] / 500;
-}
-            
+	bool lovlig = false;
 
-return 0;
-
-}
+	int antallrunder = 0;
+	int distanse = 0;
+	
 
 
-void lesTid(int* minutt, int* sekund, int* hundredel) {
-    printf("Les inn tid (minutt, sekund, hundredel): \n");
-    scanf("%d %d %d", minutt, sekund, hundredel);
+	while (!lovlig)
+	{
+		printf("Skriv inn distanse (500, 1500, 3000, 5000) -> ");
+		scanf("%d", &distanse);
 
+	for (int i = 0; i < 4; i++)
+	{
+		if (distanse == LOVLIGDISTANSE[i]) 
+		{
+			lovlig = true;
+		} 
+		else 
+		{
+			printf("Skriv inn noe i gyldig intervall! \n");
+		}
+		break;
+	}
 
+	
+	}
+
+	
+	return 0;
 }
