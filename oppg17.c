@@ -16,41 +16,78 @@ poeng = (minutt * 60 + sekund + hundredel / 100 ) / antall-500-metre
 F.eks. 1500m på tiden 1 52 13: poeng = (1*60 + 52 + 13/100) / 3 = 37.377
 7. helt til slutt spørres brukeren om vedkommende vil kjøre hele programmet fra
 begynnelsen av igjen. Dvs. starte på pkt.1 igjen.
- * 
+ *
 */
 
 const int LOVLIGDISTANSE[] = {500, 1500, 3000, 5000};
+const int MAXLOPERE = 10;
+
+int antallRunder(int distanse);
+int readDistanse();
+int antallLopere();
 
 int main(void)
 {
+
+	int distanse = readDistanse();
+	int antallrunder = antallRunder(distanse);
+	int antalllopere = 0;
+
+	return 0;
+}
+
+
+/**
+ * @brief Tar inn distanse og returnerer antall runder
+ * 
+ * @param Distanse som skal regnes ut
+ * @return Antall runder sprunget
+*/
+int antallRunder(int distanse)
+{
+	return distanse / 500;
+}
+
+
+
+/**
+ * @brief Leser distanse fra bruker og returnerer int
+ * 
+ * @return Int som representerer distenasen lopt
+*/
+int readDistanse()
+{
+	
 	bool lovlig = false;
 
-	int antallrunder = 0;
-	int distanse = 0;
-	
-
+	int d = 0;
 
 	while (!lovlig)
 	{
 		printf("Skriv inn distanse (500, 1500, 3000, 5000) -> ");
-		scanf("%d", &distanse);
+		scanf("%d", &d);
 
-	for (int i = 0; i < 4; i++)
-	{
-		if (distanse == LOVLIGDISTANSE[i]) 
+		for (int i = 0; i < 4; i++)
 		{
-			lovlig = true;
-		} 
-		else 
-		{
-			printf("Skriv inn noe i gyldig intervall! \n");
+			if (d == LOVLIGDISTANSE[i])
+			{
+				lovlig = true;
+				break;
+			}
 		}
-		break;
+		if (!lovlig)
+		{
+			printf("Skriv lovlig intervall! \n");
+		}
+		
 	}
+	return d;
+}
 
-	
-	}
+int antallLopere()
+{
+	int antall = 0;
 
-	
-	return 0;
+	printf("Skriv in hvor mange lopere det er (mindre enn 10)");
+	scanf("%d", &antall);
 }
