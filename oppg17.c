@@ -36,6 +36,8 @@ int main(void)
 	return 0;
 }
 
+//test endring
+int test = 0;
 
 /**
  * @brief Tar inn distanse og returnerer antall runder
